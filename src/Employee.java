@@ -34,9 +34,18 @@ public class Employee {
     public List<Task> getAssignedTasks() {
         return assignedTasks;
     }
+    public int getAssignedTasksCount(){
+        return assignedTasks.size();
+    }
+
     public static List<Employee> getAllEmployees(){
         return allEmployees;
     }
+    public static int getEmployeesCount(){
+        return allEmployees.size();
+    }
+
+
 
     @Override
     public String toString() {

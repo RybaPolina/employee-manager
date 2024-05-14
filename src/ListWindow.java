@@ -6,6 +6,7 @@ public class ListWindow {
     private JPanel membersPanel;
     private JPanel tasksPanel;
     private JTable workersTable;
+    private JTable tasksTable;
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("ListWindow");
@@ -18,11 +19,16 @@ public class ListWindow {
         Task task2 = new Task("Dodać wielu pracowników", Task.TaskStatus.TODO);
 
         Employee employee1 = new Employee("James", "Adams", "Programmer");
+        Employee employee2 = new Employee("Jame", "Adam", "Programmer");
 
     }
 
     private void createUIComponents() {
         workersTable = new JTable();
-        workersTable.setModel(new FinalTableModel("dupa"));
+        workersTable.setModel(new EmployeeTableModel( new Employee("Jacek", "Placek", "Programmer")));
+
+        tasksTable = new JTable();
+        //tasksTable.setModel(new TasksTableModel( new Task("Cos zrob", Task.TaskStatus.IN_PROGRESS)));
+        tasksTable.setModel(new EmployeeTableModel( new Employee("Jacek", "Placek", "Programmer")));
     }
 }
