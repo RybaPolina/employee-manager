@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,15 +10,10 @@ public class Main {
         Task task2 = new Task("Dodać wielu pracowników", Task.TaskStatus.TODO);
 
         Employee employee1 = new Employee("James", "Adams", "Programmer");
-        Employee employee2 = new Employee("Polina", "Rybachuk", "Designer");
 
-        task2.taskStatus = Task.TaskStatus.FINISHED;
-        task2.assignEmployee(employee2);
+        task1.assignEmployee(employee1);
 
         System.out.println(Task.allTasks);
-
-
-
-
+        System.out.println(Employee.allEmployees);
     }
 }

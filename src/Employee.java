@@ -1,20 +1,23 @@
 import java.util.ArrayList;
 import java.util.List;
 
-//Utworzenie klasy Employee
 public class Employee {
+    public static final List<Employee> allEmployees = new ArrayList<>();
     String name;
     String surname;
     String position;
+
     List<Task> assignedTasks;
 
-    //Konstruktor objektu Employee
     public Employee(String name, String surname, String position) {
         this.name = name;
         this.surname = surname;
         this.position = position;
         this.assignedTasks = new ArrayList<>();
+        allEmployees.add(this);
     }
+
+    //Tutaj jest jakiś bład
 
     public void assignTask(Task t){
         if(!assignedTasks.contains(t)){
@@ -31,13 +34,17 @@ public class Employee {
     public List<Task> getAssignedTasks() {
         return assignedTasks;
     }
+    public static List<Employee> getAllEmployees(){
+        return allEmployees;
+    }
 
     @Override
     public String toString() {
         return "Employee{" +
-                "position='" + position + '\'' +
+                "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", name='" + name + '\'' +
+                ", position='" + position + '\'' +
+                ", assignedTasks=" + assignedTasks.size() +
                 '}';
     }
 }

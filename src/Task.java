@@ -19,6 +19,7 @@ public class Task {
 
     public void assignEmployee(Employee e){
         this.assignedEmployee = e;
+        e.assignedTasks.add(this);
     }
 
     public void unassignEmployee(){
@@ -29,6 +30,7 @@ public class Task {
     public static List<Task> getAllTasks(){
         return allTasks;
     }
+
 
     enum TaskStatus {
         TODO,
