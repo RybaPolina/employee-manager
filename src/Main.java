@@ -14,7 +14,11 @@ public class Main {
 
         task1.assignEmployee(employee1);
 
-        System.out.println(Task.getAllTasks());
-        System.out.println(Employee.getAllEmployees());
+        //System.out.println(Task.getAllTasks());
+        //System.out.println(Employee.getAllEmployees());
+
+        for (Employee employee : Employee.allEmployees) {
+            System.out.println(employee);
+        }
     }
 }

@@ -25,10 +25,12 @@ public class ListWindow {
 
     private void createUIComponents() {
         workersTable = new JTable();
-        workersTable.setModel(new EmployeeTableModel( new Employee("Jacek", "Placek", "Programmer")));
-
-        tasksTable = new JTable();
+        //workersTable.setModel(new EmployeeTableModel(new Employee("Jacek", "Placek", "Pyszastek")));
+        for (Employee employee:Employee.getAllEmployees()){
+        workersTable.setModel(new EmployeeTableModel(employee));
+        }
+        //tasksTable = new JTable();
         //tasksTable.setModel(new TasksTableModel( new Task("Cos zrob", Task.TaskStatus.IN_PROGRESS)));
-        tasksTable.setModel(new EmployeeTableModel( new Employee("Jacek", "Placek", "Programmer")));
+        //tasksTable.setModel(new EmployeeTableModel( new Employee("Jacek", "Placek", "Programmer")));
     }
 }

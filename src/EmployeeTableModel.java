@@ -26,7 +26,7 @@ public class EmployeeTableModel extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
-        return Employee.getEmployeesCount();
+        return 1;
     }
 
     @Override
