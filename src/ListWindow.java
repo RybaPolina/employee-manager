@@ -22,13 +22,17 @@ public class ListWindow {
         Employee employee1 = new Employee("James", "Adams", "Programmer");
         Employee employee2 = new Employee("Jame", "Adam", "Programmer");
 
+        employee2.assignTask(task1);
+        System.out.println(employee2.assignedTasks);
+
     }
 
     private void createUIComponents() {
-        JPanel membersPanel = new JPanel();
         workersTable = new JTable();
-        membersPanel.add(workersTable);
-        workersTable.setModel(new EmployeeTableModel(Employee.allEmployees));
+        workersTable.setModel(new EmployeeTableModel());
+
+        tasksTable = new JTable();
+//        tasksTable.setModel(new TasksTableModel());
 
         //JPanel tasksPanel = new JPanel();
         //tasksPanel.setBackground(Color.yellow);

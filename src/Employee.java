@@ -6,7 +6,6 @@ public class Employee {
     String name;
     String surname;
     String position;
-
     List<Task> assignedTasks;
 
     public Employee(String name, String surname, String position) {
@@ -17,14 +16,13 @@ public class Employee {
         allEmployees.add(this);
     }
 
-    public void assignTask(Task t){
-        if(!assignedTasks.contains(t)){
+    public void assignTask(Task t) {
+        if (!assignedTasks.contains(t)) {
             t.assignEmployee(this);
-            assignedTasks.add(t);
         }
     }
 
-    public void unassignTask(Task t){
+    public void unassignTask(Task t) {
         t.unassignEmployee();
         assignedTasks.remove(t);
     }
@@ -32,19 +30,29 @@ public class Employee {
     public List<Task> getAssignedTasks() {
         return assignedTasks;
     }
+
     public String getEmployeeName() {
         return name;
     }
 
-    public int getAssignedTasksCount(){
+    public int getAssignedTasksCount() {
         return assignedTasks.size();
     }
 
-    public static List<Employee> getAllEmployees(){
+    public static List<Employee> getAllEmployees() {
         return allEmployees;
     }
-    public static int getEmployeesCount(){
+
+    public static int getEmployeesCount() {
         return allEmployees.size();
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getPosition() {
+        return position;
     }
 
     @Override

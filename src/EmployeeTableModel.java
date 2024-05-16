@@ -4,23 +4,15 @@ import java.util.List;
 
 public class EmployeeTableModel extends AbstractTableModel {
 
-    private String name;
-    private String surname;
-    private String position;
-    private int assignedTasksCount;
-    private String[] columnNames = { "Name", "Surname", "Position",
+    private final String[] columnNames = {"Name", "Surname", "Position",
             "Assigned Tasks"};
 
-    public EmployeeTableModel(List<Employee> employees) {
-        this.name = employees.name;
-        this.surname = employees.getEmployeeName();
-        this.position = employees.getEmployeeName();
-        this.assignedTasksCount = employees.getAssignedTasksCount();
+    public EmployeeTableModel() {
     }
 
 
     @Override
-    public String getColumnName(int columnIndex){
+    public String getColumnName(int columnIndex) {
         return columnNames[columnIndex];
     }
 
@@ -31,27 +23,30 @@ public class EmployeeTableModel extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 4;
+        return columnNames.length;
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
+        Employee e = Employee.getAllEmployees().get(rowIndex);
+
         switch (columnIndex) {
             case 0:
-                return name;
+                return e.getEmployeeName();
             case 1:
-                return surname;
+                return e.getSurname();
             case 2:
-                return position;
+                return e.getPosition();
             case 3:
-                return assignedTasksCount;
+                return e.getAssignedTasksCount();
         }
+
         return null;
     }
 
     @Override
-    public Class<?> getColumnClass(int columnIndex){
-        switch (columnIndex){
+    public Class<?> getColumnClass(int columnIndex) {
+        switch (columnIndex) {
             case 0:
                 return String.class;
             case 1:
