@@ -28,7 +28,7 @@
               <grid id="62bd0" binding="membersPanel" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
-                  <tabbedpane title="Untitled"/>
+                  <tabbedpane title="Workers"/>
                 </constraints>
                 <properties/>
                 <border type="none"/>
@@ -56,7 +56,7 @@
               <grid id="ff269" binding="tasksPanel" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
-                  <tabbedpane title="Untitled"/>
+                  <tabbedpane title="Tasks"/>
                 </constraints>
                 <properties/>
                 <border type="none"/>

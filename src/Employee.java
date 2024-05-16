@@ -17,8 +17,6 @@ public class Employee {
         allEmployees.add(this);
     }
 
-    //Tutaj jest jakiś bład
-
     public void assignTask(Task t){
         if(!assignedTasks.contains(t)){
             t.assignEmployee(this);
@@ -34,6 +32,10 @@ public class Employee {
     public List<Task> getAssignedTasks() {
         return assignedTasks;
     }
+    public String getEmployeeName() {
+        return name;
+    }
+
     public int getAssignedTasksCount(){
         return assignedTasks.size();
     }
@@ -44,7 +46,6 @@ public class Employee {
     public static int getEmployeesCount(){
         return allEmployees.size();
     }
-
 
     @Override
     public String toString() {

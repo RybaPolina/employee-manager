@@ -17,8 +17,8 @@ public class Main {
         //System.out.println(Task.getAllTasks());
         //System.out.println(Employee.getAllEmployees());
 
-        for (Employee employee : Employee.allEmployees) {
+        /*for (Employee employee : Employee.allEmployees) {
             System.out.println(employee);
-        }
+        }*/
     }
 }

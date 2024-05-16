@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class ListWindow {
     private JPanel panel1;
@@ -24,13 +25,26 @@ public class ListWindow {
     }
 
     private void createUIComponents() {
+        JPanel membersPanel = new JPanel();
         workersTable = new JTable();
-        //workersTable.setModel(new EmployeeTableModel(new Employee("Jacek", "Placek", "Pyszastek")));
-        for (Employee employee:Employee.getAllEmployees()){
-        workersTable.setModel(new EmployeeTableModel(employee));
-        }
-        //tasksTable = new JTable();
+        membersPanel.add(workersTable);
+        workersTable.setModel(new EmployeeTableModel(Employee.allEmployees));
+
+        //JPanel tasksPanel = new JPanel();
+        //tasksPanel.setBackground(Color.yellow);
+
+        /*tasksTable = new JTable();
+        tasksPanel.add(tasksTable);
         //tasksTable.setModel(new TasksTableModel( new Task("Cos zrob", Task.TaskStatus.IN_PROGRESS)));
-        //tasksTable.setModel(new EmployeeTableModel( new Employee("Jacek", "Placek", "Programmer")));
+        tasksTable.setModel(new EmployeeTableModel( new Employee("Janek", "Planek", "Programmer")));
+
+        JTabbedPane tabbedPane1 = new JTabbedPane();
+        tabbedPane1.add("Workers ",membersPanel);
+        tabbedPane1.add("Tasks",tasksPanel);
+        */
+        /*for (Employee employee:Employee.getAllEmployees()){
+        workersTable.setModel(new EmployeeTableModel(employee));
+        }*/
+
     }
 }

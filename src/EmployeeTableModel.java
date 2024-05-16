@@ -11,11 +11,11 @@ public class EmployeeTableModel extends AbstractTableModel {
     private String[] columnNames = { "Name", "Surname", "Position",
             "Assigned Tasks"};
 
-    public EmployeeTableModel(Employee e){
-        this.name = e.name;
-        this.surname = e.surname;
-        this.position = e.position;
-        this.assignedTasksCount = e.getAssignedTasksCount();
+    public EmployeeTableModel(List<Employee> employees) {
+        this.name = employees.name;
+        this.surname = employees.getEmployeeName();
+        this.position = employees.getEmployeeName();
+        this.assignedTasksCount = employees.getAssignedTasksCount();
     }
 
 
@@ -26,7 +26,7 @@ public class EmployeeTableModel extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
-        return 1;
+        return Employee.getEmployeesCount();
     }
 
     @Override
