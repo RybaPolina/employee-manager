@@ -31,6 +31,32 @@ public class Task {
         return allTasks;
     }
 
+    public static int getTasksCount() {
+        return allTasks.size();
+    }
+
+    public String getTaskName() {
+        return name;
+    }
+
+    public TaskStatus getTaskStatus() {
+        return taskStatus;
+    }
+
+    public LocalDateTime getTaskCreationDateTime() {
+        return creationDateTime;
+    }
+
+    public LocalDateTime getTaskProjectedFinishDateTime() {
+        return projectedFinishDateTime;
+    }
+
+    public String getTaskAssignedEmployee() {
+        if (assignedEmployee != null) {
+            return assignedEmployee.getEmployeeName() + " " + assignedEmployee.getSurname();
+        }
+        return "No Employee Assigned";
+    }
 
     enum TaskStatus {
         TODO,

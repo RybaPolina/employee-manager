@@ -1,61 +1,50 @@
 import javax.swing.table.AbstractTableModel;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 public class TasksTableModel extends AbstractTableModel {
+    private final String[] taskColumnNames = {"Task name", "Task Status", "Created",
+            "Deadline", "Assigned to"};
 
-    String name;
-    Task.TaskStatus taskStatus;
-    LocalDateTime creationDateTime;
-    LocalDateTime projectedFinishDateTime;
-    Employee assignedEmployee;
-    private String[] columnNames = { "Task Name", "Status", "Creation Time",
-            "Deadline", "Assigned Employee" };
-
-    public TasksTableModel(Task t){
-        this.name = t.name;
-        this.taskStatus = t.taskStatus;
-        this.creationDateTime = t.creationDateTime;
-        this.assignedEmployee = t.assignedEmployee;
+    public TasksTableModel() {
     }
 
-
     @Override
-    public String getColumnName(int columnIndex){
-        return columnNames[columnIndex];
+    public String getColumnName(int columnIndex) {
+        return taskColumnNames[columnIndex];
     }
 
     @Override
     public int getRowCount() {
-        return 1;
+        return Task.getTasksCount();
     }
 
     @Override
     public int getColumnCount() {
-        return 5;
+        return taskColumnNames.length;
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
+        Task task = Task.getAllTasks().get(rowIndex);
+
         switch (columnIndex) {
             case 0:
-                return name;
+                return task.getTaskName();
             case 1:
-                return taskStatus;
+                return task.getTaskStatus();
             case 2:
-                return creationDateTime;
+                return task.getTaskCreationDateTime();
             case 3:
-                return projectedFinishDateTime;
+                return task.getTaskProjectedFinishDateTime();
             case 4:
-                return assignedEmployee;
+                return task.getTaskAssignedEmployee();
         }
         return null;
     }
 
     @Override
-    public Class<?> getColumnClass(int columnIndex){
-        switch (columnIndex){
+    public Class<?> getColumnClass(int columnIndex) {
+        switch (columnIndex) {
             case 0:
                 return String.class;
             case 1:
@@ -65,7 +54,7 @@ public class TasksTableModel extends AbstractTableModel {
             case 3:
                 return LocalDateTime.class;
             case 4:
-                return Employee.class;
+                return String.class;
         }
         return null;
     }

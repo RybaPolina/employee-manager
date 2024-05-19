@@ -18,11 +18,14 @@ public class ListWindow {
 
         Task task1 = new Task("Napisać klasę pracownik", Task.TaskStatus.IN_PROGRESS);
         Task task2 = new Task("Dodać wielu pracowników", Task.TaskStatus.TODO);
+        Task task3 = new Task("Grać cały dzień", Task.TaskStatus.TODO);
 
         Employee employee1 = new Employee("James", "Adams", "Programmer");
         Employee employee2 = new Employee("Jame", "Adam", "Programmer");
+        Employee employee3 = new Employee("Konrad", "Cepryński", "Professional Leniuch");
 
         employee2.assignTask(task1);
+        employee3.assignTask(task3);
         System.out.println(employee2.assignedTasks);
 
     }
@@ -32,23 +35,6 @@ public class ListWindow {
         workersTable.setModel(new EmployeeTableModel());
 
         tasksTable = new JTable();
-//        tasksTable.setModel(new TasksTableModel());
-
-        //JPanel tasksPanel = new JPanel();
-        //tasksPanel.setBackground(Color.yellow);
-
-        /*tasksTable = new JTable();
-        tasksPanel.add(tasksTable);
-        //tasksTable.setModel(new TasksTableModel( new Task("Cos zrob", Task.TaskStatus.IN_PROGRESS)));
-        tasksTable.setModel(new EmployeeTableModel( new Employee("Janek", "Planek", "Programmer")));
-
-        JTabbedPane tabbedPane1 = new JTabbedPane();
-        tabbedPane1.add("Workers ",membersPanel);
-        tabbedPane1.add("Tasks",tasksPanel);
-        */
-        /*for (Employee employee:Employee.getAllEmployees()){
-        workersTable.setModel(new EmployeeTableModel(employee));
-        }*/
-
+        tasksTable.setModel(new TasksTableModel());
     }
 }

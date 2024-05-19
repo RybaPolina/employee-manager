@@ -4,7 +4,7 @@ import java.util.List;
 
 public class EmployeeTableModel extends AbstractTableModel {
 
-    private final String[] columnNames = {"Name", "Surname", "Position",
+    private final String[] employeeColumnNames = {"Name", "Surname", "Position",
             "Assigned Tasks"};
 
     public EmployeeTableModel() {
@@ -13,7 +13,7 @@ public class EmployeeTableModel extends AbstractTableModel {
 
     @Override
     public String getColumnName(int columnIndex) {
-        return columnNames[columnIndex];
+        return employeeColumnNames[columnIndex];
     }
 
     @Override
@@ -23,7 +23,7 @@ public class EmployeeTableModel extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return columnNames.length;
+        return employeeColumnNames.length;
     }
 
     @Override
