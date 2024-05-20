@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 
 public class ListWindow {
     private JPanel panel1;
@@ -8,6 +7,10 @@ public class ListWindow {
     private JPanel tasksPanel;
     private JTable workersTable;
     private JTable tasksTable;
+    private JTextField employeeNameTextField;
+    private JTextField employeePositionTextField;
+    private JTextField employeeSurnameTextField;
+    private JButton EmployeeCreateButton;
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("ListWindow");
@@ -36,5 +39,18 @@ public class ListWindow {
 
         tasksTable = new JTable();
         tasksTable.setModel(new TasksTableModel());
+
+        EmployeeCreateButton = new JButton();
+        EmployeeCreateButton.addActionListener(e -> {
+            String name = employeeNameTextField.getText();
+            String surname = employeeSurnameTextField.getText();
+            String position = employeePositionTextField.getText();
+            new Employee(name, surname, position);
+            employeeNameTextField.setText("");
+            employeeSurnameTextField.setText("");
+            employeePositionTextField.setText("");
+            panel1.repaint();
+        });
+
     }
 }
