@@ -55,6 +55,7 @@ public class Employee {
         return position;
     }
 
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -64,4 +65,5 @@ public class Employee {
                 ", assignedTasks=" + assignedTasks.size() +
                 '}';
     }
+
 }

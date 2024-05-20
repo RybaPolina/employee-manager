@@ -1,4 +1,7 @@
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class ListWindow {
     private JPanel panel1;
@@ -11,6 +14,11 @@ public class ListWindow {
     private JTextField employeePositionTextField;
     private JTextField employeeSurnameTextField;
     private JButton EmployeeCreateButton;
+    private JTextField taskNameTextField;
+    private JButton TaskCreateButton;
+    private JRadioButton taskStatusRadio;
+    private JComboBox taskEmployeeComboBox;
+    private JTextField taskDueDateTextField;
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("ListWindow");
@@ -30,6 +38,9 @@ public class ListWindow {
         employee2.assignTask(task1);
         employee3.assignTask(task3);
         System.out.println(employee2.assignedTasks);
+        for (Employee employee:Employee.getAllEmployees()) {
+            System.out.println(employee.name + " " + employee.surname);
+        }
 
     }
 
@@ -50,6 +61,20 @@ public class ListWindow {
             employeeSurnameTextField.setText("");
             employeePositionTextField.setText("");
             panel1.repaint();
+        });
+
+        taskEmployeeComboBox = new JComboBox();
+        //nie dziala nie wiadomo czemu :(
+        for (Employee employee:Employee.getAllEmployees()) {
+            taskEmployeeComboBox.addItem(employee.name + " " + employee.surname);
+        }
+
+        TaskCreateButton = new JButton();
+        TaskCreateButton.addActionListener(e -> {
+           String name = taskNameTextField.getText();
+           new Task(name, Task.TaskStatus.IN_PROGRESS);
+           taskNameTextField.setText("");
+           panel1.repaint();
         });
 
     }
