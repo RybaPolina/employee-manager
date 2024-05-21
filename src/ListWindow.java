@@ -1,7 +1,5 @@
 import javax.swing.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.awt.event.*;
 
 public class ListWindow {
     private JPanel panel1;
@@ -16,9 +14,11 @@ public class ListWindow {
     private JButton EmployeeCreateButton;
     private JTextField taskNameTextField;
     private JButton TaskCreateButton;
-    private JRadioButton taskStatusRadio;
+    private JRadioButton toDoRadioButton;
     private JComboBox taskEmployeeComboBox;
     private JTextField taskDueDateTextField;
+    private JRadioButton inProgressRadioButton;
+    private JRadioButton doneRadioButton;
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("ListWindow");
@@ -35,11 +35,8 @@ public class ListWindow {
         Employee employee2 = new Employee("Jame", "Adam", "Programmer");
         Employee employee3 = new Employee("Konrad", "Cepryński", "Professional Leniuch");
 
-        employee2.assignTask(task1);
-        employee3.assignTask(task3);
-        System.out.println(employee2.assignedTasks);
-        for (Employee employee:Employee.getAllEmployees()) {
-            System.out.println(employee.name + " " + employee.surname);
+        for (String employee:Employee.getEmployeeArray()) {
+            System.out.println(employee);
         }
 
     }
@@ -63,16 +60,20 @@ public class ListWindow {
             panel1.repaint();
         });
 
-        taskEmployeeComboBox = new JComboBox();
-        //nie dziala nie wiadomo czemu :(
-        for (Employee employee:Employee.getAllEmployees()) {
-            taskEmployeeComboBox.addItem(employee.name + " " + employee.surname);
-        }
+        EmployeeComboBoxModel mode = new EmployeeComboBoxModel();
+        taskEmployeeComboBox = new JComboBox(mode);
+
 
         TaskCreateButton = new JButton();
         TaskCreateButton.addActionListener(e -> {
            String name = taskNameTextField.getText();
-           new Task(name, Task.TaskStatus.IN_PROGRESS);
+           Task task = new Task(name, Task.TaskStatus.IN_PROGRESS);
+            taskEmployeeComboBox.addActionListener( new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent actionEvent) {
+                    task.assignEmployee(Employee.getAllEmployees().get(taskEmployeeComboBox.getSelectedIndex()));
+                }
+            });
            taskNameTextField.setText("");
            panel1.repaint();
         });

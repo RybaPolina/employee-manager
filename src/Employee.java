@@ -55,6 +55,13 @@ public class Employee {
         return position;
     }
 
+    public static String[] getEmployeeArray() {
+        String[] employeeArray = new String[allEmployees.size()];
+        for (int i = 0; i < allEmployees.size(); i++) {
+            employeeArray[i] = allEmployees.get(i).getEmployeeName() + " " + allEmployees.get(i).getSurname();
+        }
+        return employeeArray;
+    }
 
     @Override
     public String toString() {
