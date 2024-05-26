@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.event.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class ListWindow {
     private JPanel panel1;
@@ -41,6 +43,17 @@ public class ListWindow {
 
     }
 
+    private Task.TaskStatus getRadioTaskStatus (){
+        if (toDoRadioButton.isSelected()){
+            return Task.TaskStatus.TODO;
+        } else if (inProgressRadioButton.isSelected()) {
+            return  Task.TaskStatus.IN_PROGRESS;
+        } else if (doneRadioButton.isSelected()) {
+            return Task.TaskStatus.FINISHED;
+        }
+        return null;
+    }
+
     private void createUIComponents() {
         workersTable = new JTable();
         workersTable.setModel(new EmployeeTableModel());
@@ -67,13 +80,9 @@ public class ListWindow {
         TaskCreateButton = new JButton();
         TaskCreateButton.addActionListener(e -> {
            String name = taskNameTextField.getText();
-           Task task = new Task(name, Task.TaskStatus.IN_PROGRESS);
-            taskEmployeeComboBox.addActionListener( new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent actionEvent) {
-                    task.assignEmployee(Employee.getAllEmployees().get(taskEmployeeComboBox.getSelectedIndex()));
-                }
-            });
+           Task task = new Task(name, getRadioTaskStatus());
+           task.assignEmployee(Employee.getAllEmployees().get(taskEmployeeComboBox.getSelectedIndex()));
+           task.setProjectedFinishDateTime(LocalDateTime.parse(taskDueDateTextField.getText(), DateTimeFormatter.ofPattern("dd.MM.uuuu HH:mm")));
            taskNameTextField.setText("");
            panel1.repaint();
         });

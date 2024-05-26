@@ -26,7 +26,6 @@ public class Task {
         this.assignedEmployee = null;
     }
 
-
     public static List<Task> getAllTasks(){
         return allTasks;
     }
@@ -47,8 +46,15 @@ public class Task {
         return creationDateTime;
     }
 
+    public void setProjectedFinishDateTime(LocalDateTime dueDate) {
+        this.projectedFinishDateTime = dueDate;
+    }
+
     public LocalDateTime getTaskProjectedFinishDateTime() {
+        if (projectedFinishDateTime != null){
         return projectedFinishDateTime;
+        }
+        return LocalDateTime.now();
     }
 
     public String getTaskAssignedEmployee() {
