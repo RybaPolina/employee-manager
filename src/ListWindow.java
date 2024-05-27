@@ -1,4 +1,7 @@
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -18,7 +21,6 @@ public class ListWindow {
     private JButton TaskCreateButton;
     private JRadioButton toDoRadioButton;
     private JComboBox taskEmployeeComboBox;
-    private JTextField taskDueDateTextField;
     private JRadioButton inProgressRadioButton;
     private JRadioButton doneRadioButton;
     private JComboBox taskDueDateMonthCombo;
@@ -64,6 +66,18 @@ public class ListWindow {
 
         tasksTable = new JTable();
         tasksTable.setModel(new TasksTableModel());
+        tasksTable.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent mouseEvent) {
+                JTable table =(JTable) mouseEvent.getSource();
+                Point point = mouseEvent.getPoint();
+                int row = table.rowAtPoint(point);
+                if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
+                    TaskEditPopUp dialog = new TaskEditPopUp(Task.getAllTasks().get(row));
+                    dialog.pack();
+                    dialog.setVisible(true);
+                }
+            }
+        });
 
         EmployeeCreateButton = new JButton();
         EmployeeCreateButton.addActionListener(e -> {
@@ -79,7 +93,6 @@ public class ListWindow {
 
         EmployeeComboBoxModel mode = new EmployeeComboBoxModel();
         taskEmployeeComboBox = new JComboBox(mode);
-
 
         taskDueDateMonthCombo = new JComboBox(Calendar.getMonth());
         taskDueDateHourCombo = new JComboBox(Calendar.getHours());

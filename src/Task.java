@@ -43,8 +43,16 @@ public class Task {
         return allTasks.size();
     }
 
+    public void setTaskName(String name) {
+        this.name = name;
+    }
+
     public String getTaskName() {
         return name;
+    }
+
+    public void setTaskStatus(TaskStatus taskStatus) {
+        this.taskStatus = taskStatus;
     }
 
     public TaskStatus getTaskStatus() {
@@ -73,7 +81,6 @@ public class Task {
     enum TaskStatus {
         TODO,
         IN_PROGRESS,
-        OVERDUE,
         FINISHED
     }
 
