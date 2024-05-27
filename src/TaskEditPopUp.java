@@ -81,6 +81,7 @@ public class TaskEditPopUp extends JDialog {
     private void createUIComponents() {
         EmployeeComboBoxModel mode = new EmployeeComboBoxModel();
         taskEmployeePUComboBox = new JComboBox(mode);
+        taskEmployeePUComboBox.setSelectedItem(toBeEdited.assignedEmployee);
 
         taskDueDatePUMonthCombo = new JComboBox(Calendar.getMonth());
         taskDueDatePUHourCombo = new JComboBox(Calendar.getHours());
