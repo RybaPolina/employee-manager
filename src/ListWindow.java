@@ -1,7 +1,7 @@
 import javax.swing.*;
-import java.awt.event.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class ListWindow {
     private JPanel panel1;
@@ -21,6 +21,10 @@ public class ListWindow {
     private JTextField taskDueDateTextField;
     private JRadioButton inProgressRadioButton;
     private JRadioButton doneRadioButton;
+    private JComboBox taskDueDateMonthCombo;
+    private JComboBox taskDueDateHourCombo;
+    private JComboBox taskDueDateYearCombo;
+    private JComboBox taskDueDateDayCombo;
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("ListWindow");
@@ -77,12 +81,17 @@ public class ListWindow {
         taskEmployeeComboBox = new JComboBox(mode);
 
 
+        taskDueDateMonthCombo = new JComboBox(Calendar.getMonth());
+        taskDueDateHourCombo = new JComboBox(Calendar.getHours());
+        taskDueDateYearCombo = new JComboBox(Calendar.getYear());
+        taskDueDateDayCombo = new JComboBox(Calendar.getDay());
+
         TaskCreateButton = new JButton();
         TaskCreateButton.addActionListener(e -> {
            String name = taskNameTextField.getText();
-           Task task = new Task(name, getRadioTaskStatus());
+           String taskDueDateTextField = taskDueDateDayCombo.getSelectedItem() + "." + taskDueDateMonthCombo.getSelectedItem() + "." + taskDueDateYearCombo.getSelectedItem() + " " + taskDueDateHourCombo.getSelectedItem();
+           Task task = new Task(name, getRadioTaskStatus(), LocalDateTime.parse(taskDueDateTextField, DateTimeFormatter.ofPattern("dd.MM.uuuu HH:mm")) );
            task.assignEmployee(Employee.getAllEmployees().get(taskEmployeeComboBox.getSelectedIndex()));
-           task.setProjectedFinishDateTime(LocalDateTime.parse(taskDueDateTextField.getText(), DateTimeFormatter.ofPattern("dd.MM.uuuu HH:mm")));
            taskNameTextField.setText("");
            panel1.repaint();
         });

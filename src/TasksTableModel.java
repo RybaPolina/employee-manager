@@ -34,9 +34,9 @@ public class TasksTableModel extends AbstractTableModel {
             case 1:
                 return task.getTaskStatus();
             case 2:
-                return task.getTaskCreationDateTime().format(DateTimeFormatter.ofPattern("dd.MM.uuuu HH.mm"));
+                return task.getTaskCreationDateTime().format(DateTimeFormatter.ofPattern("dd.MM.uuuu HH:mm"));
             case 3:
-                return task.getTaskProjectedFinishDateTime().format(DateTimeFormatter.ofPattern("dd.MM.uuuu HH.mm"));
+                return task.getTaskProjectedFinishDateTime().format(DateTimeFormatter.ofPattern("dd.MM.uuuu HH:mm"));
             case 4:
                 return task.getTaskAssignedEmployee();
         }

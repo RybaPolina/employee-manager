@@ -14,6 +14,15 @@ public class Task {
         this.name = name;
         this.taskStatus = taskStatus;
         this.creationDateTime = LocalDateTime.now();
+        this.projectedFinishDateTime = LocalDateTime.now().plusDays(7);
+        allTasks.add(this);
+    }
+
+    public Task(String name, TaskStatus taskStatus, LocalDateTime projectedFinishDateTime) {
+        this.name = name;
+        this.taskStatus = taskStatus;
+        this.creationDateTime = LocalDateTime.now();
+        this.projectedFinishDateTime = projectedFinishDateTime;
         allTasks.add(this);
     }
 
@@ -51,10 +60,7 @@ public class Task {
     }
 
     public LocalDateTime getTaskProjectedFinishDateTime() {
-        if (projectedFinishDateTime != null){
         return projectedFinishDateTime;
-        }
-        return LocalDateTime.now();
     }
 
     public String getTaskAssignedEmployee() {
