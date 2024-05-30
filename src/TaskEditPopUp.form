@@ -76,7 +76,7 @@
               <text value="New Name"/>
             </properties>
           </component>
-          <component id="fcef6" class="javax.swing.JTextField" binding="taskNamePUTextField">
+          <component id="fcef6" class="javax.swing.JTextField" binding="taskNamePUTextField" custom-create="true">
             <constraints>
               <grid row="1" column="1" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
@@ -92,7 +92,7 @@
               <text value="Status"/>
             </properties>
           </component>
-          <component id="abc68" class="javax.swing.JRadioButton" binding="toDoPURadioButton">
+          <component id="abc68" class="javax.swing.JRadioButton" binding="toDoPURadioButton" custom-create="true">
             <constraints>
               <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -100,7 +100,7 @@
               <text value="To Do"/>
             </properties>
           </component>
-          <component id="fb43b" class="javax.swing.JRadioButton" binding="inProgressPURadioButton">
+          <component id="fb43b" class="javax.swing.JRadioButton" binding="inProgressPURadioButton" custom-create="true">
             <constraints>
               <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -108,7 +108,7 @@
               <text value="In Progress"/>
             </properties>
           </component>
-          <component id="14c8" class="javax.swing.JRadioButton" binding="donePURadioButton">
+          <component id="14c8" class="javax.swing.JRadioButton" binding="donePURadioButton" custom-create="true">
             <constraints>
               <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>

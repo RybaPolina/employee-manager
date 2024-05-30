@@ -47,7 +47,6 @@ public class TaskEditPopUp extends JDialog {
             }
         });
 
-        // call onCancel() when cross is clicked
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
@@ -55,7 +54,6 @@ public class TaskEditPopUp extends JDialog {
             }
         });
 
-        // call onCancel() on ESCAPE
         contentPane.registerKeyboardAction(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onCancel();
@@ -74,18 +72,34 @@ public class TaskEditPopUp extends JDialog {
     }
 
     private void onCancel() {
-        // add your code here if necessary
         dispose();
     }
 
     private void createUIComponents() {
+
+        taskNamePUTextField = new JTextField();
+        taskNamePUTextField.setText(toBeEdited.getTaskName());
+
         EmployeeComboBoxModel mode = new EmployeeComboBoxModel();
         taskEmployeePUComboBox = new JComboBox(mode);
         taskEmployeePUComboBox.setSelectedItem(toBeEdited.getTaskAssignedEmployee());
 
-        taskDueDatePUMonthCombo = new JComboBox(Calendar.getMonth());
-        taskDueDatePUHourCombo = new JComboBox(Calendar.getHours());
-        taskDueDatePUYearCombo = new JComboBox(Calendar.getYear());
         taskDueDatePUDayCombo = new JComboBox(Calendar.getDay());
+        taskDueDatePUMonthCombo = new JComboBox(Calendar.getMonth());
+        taskDueDatePUYearCombo = new JComboBox(Calendar.getYear());
+        taskDueDatePUHourCombo = new JComboBox(Calendar.getHours());
+
+        taskDueDatePUDayCombo.setSelectedItem(toBeEdited.getTaskProjectedFinishDateTime().format(DateTimeFormatter.ofPattern("dd")));
+        taskDueDatePUMonthCombo.setSelectedItem(toBeEdited.getTaskProjectedFinishDateTime().format(DateTimeFormatter.ofPattern("MM")));
+        taskDueDatePUYearCombo.setSelectedItem(toBeEdited.getTaskProjectedFinishDateTime().format(DateTimeFormatter.ofPattern("yyyy")));
+
+        toDoPURadioButton = new JRadioButton();
+        inProgressPURadioButton = new JRadioButton();
+        donePURadioButton = new JRadioButton();
+        if (toBeEdited.getTaskStatus() == Task.TaskStatus.FINISHED){
+            donePURadioButton.setSelected(true);
+        } else if (toBeEdited.getTaskStatus() == Task.TaskStatus.IN_PROGRESS) {
+            inProgressPURadioButton.setSelected(true);
+        } else {toDoPURadioButton.setSelected(true);}
     }
 }

@@ -34,17 +34,13 @@ public class ListWindow {
         frame.pack();
         frame.setVisible(true);
 
-        Task task1 = new Task("Napisać klasę pracownik", Task.TaskStatus.IN_PROGRESS);
-        Task task2 = new Task("Dodać wielu pracowników", Task.TaskStatus.TODO);
-        Task task3 = new Task("Grać cały dzień", Task.TaskStatus.TODO);
+        Task task1 = new Task("Napisać program w Java", Task.TaskStatus.IN_PROGRESS);
+        Task task2 = new Task("Wystawić fakturę", Task.TaskStatus.TODO);
+        Task task3 = new Task("Zaprojektować logo", Task.TaskStatus.TODO);
 
-        Employee employee1 = new Employee("James", "Adams", "Programmer");
-        Employee employee2 = new Employee("Jame", "Adam", "Programmer");
-        Employee employee3 = new Employee("Konrad", "Cepryński", "Professional Leniuch");
-
-        for (String employee:Employee.getEmployeeArray()) {
-            System.out.println(employee);
-        }
+        Employee employee1 = new Employee("Polina", "Rybachuk", "Programmer");
+        Employee employee2 = new Employee("Konrad", "Cepryński", "Designer");
+        Employee employee3 = new Employee("Kacper", "Molewski", "Manager");
 
     }
 
@@ -98,6 +94,10 @@ public class ListWindow {
         taskDueDateHourCombo = new JComboBox(Calendar.getHours());
         taskDueDateYearCombo = new JComboBox(Calendar.getYear());
         taskDueDateDayCombo = new JComboBox(Calendar.getDay());
+        taskDueDateDayCombo.setSelectedItem(LocalDateTime.now().plusDays(1).format(DateTimeFormatter.ofPattern("dd")));
+        taskDueDateMonthCombo.setSelectedItem(LocalDateTime.now().plusDays(1).format(DateTimeFormatter.ofPattern("MM")));
+        taskDueDateYearCombo.setSelectedItem(LocalDateTime.now().plusDays(1).format(DateTimeFormatter.ofPattern("yyyy")));
+
 
         TaskCreateButton = new JButton();
         TaskCreateButton.addActionListener(e -> {

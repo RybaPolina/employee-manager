@@ -9,7 +9,6 @@ public class Task {
     TaskStatus taskStatus;
     LocalDateTime creationDateTime;
     LocalDateTime projectedFinishDateTime;
-    //LocalDateTime taskTimer;
     Employee assignedEmployee;
 
     public Task(String name, TaskStatus taskStatus) {
