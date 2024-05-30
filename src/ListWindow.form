@@ -33,14 +33,6 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="14b94" class="javax.swing.JTable" binding="workersTable" custom-create="true">
-                    <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="5" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                        <preferred-size width="150" height="50"/>
-                      </grid>
-                    </constraints>
-                    <properties/>
-                  </component>
                   <component id="3dd8a" class="javax.swing.JTextField" binding="employeePositionTextField">
                     <constraints>
                       <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
@@ -87,6 +79,19 @@
                       <text value="Add new Employee"/>
                     </properties>
                   </component>
+                  <scrollpane id="e7791">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="5" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="14b94" class="javax.swing.JTable" binding="workersTable" custom-create="true">
+                        <constraints/>
+                        <properties/>
+                      </component>
+                    </children>
+                  </scrollpane>
                 </children>
               </grid>
               <grid id="ff269" binding="tasksPanel" layout-manager="GridLayoutManager" row-count="6" column-count="9" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -97,14 +102,6 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="e9390" class="javax.swing.JTable" binding="tasksTable" custom-create="true">
-                    <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="9" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                        <preferred-size width="150" height="50"/>
-                      </grid>
-                    </constraints>
-                    <properties/>
-                  </component>
                   <component id="93867" class="javax.swing.JButton" binding="TaskCreateButton" custom-create="true">
                     <constraints>
                       <grid row="5" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
@@ -246,6 +243,19 @@
                       <text value="Done"/>
                     </properties>
                   </component>
+                  <scrollpane id="17a28">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="9" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="e9390" class="javax.swing.JTable" binding="tasksTable" custom-create="true">
+                        <constraints/>
+                        <properties/>
+                      </component>
+                    </children>
+                  </scrollpane>
                 </children>
               </grid>
             </children>

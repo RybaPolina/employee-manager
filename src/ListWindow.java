@@ -88,6 +88,7 @@ public class ListWindow {
             employeeSurnameTextField.setText("");
             employeePositionTextField.setText("");
             panel1.repaint();
+            workersTable.revalidate();
         });
 
         EmployeeComboBoxModel mode = new EmployeeComboBoxModel();
@@ -106,6 +107,7 @@ public class ListWindow {
            task.assignEmployee(Employee.getAllEmployees().get(taskEmployeeComboBox.getSelectedIndex()));
            taskNameTextField.setText("");
            panel1.repaint();
+           tasksTable.revalidate();
         });
 
     }
