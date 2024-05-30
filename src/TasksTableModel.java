@@ -1,10 +1,9 @@
 import javax.swing.table.AbstractTableModel;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class TasksTableModel extends AbstractTableModel {
     private final String[] taskColumnNames = {"Task name", "Task Status", "Created",
-            "Deadline", "Assigned to"};
+            "Deadline", "Assigned to", "Task duration"};
 
     public TasksTableModel() {
     }
@@ -39,6 +38,8 @@ public class TasksTableModel extends AbstractTableModel {
                 return task.getTaskProjectedFinishDateTime().format(DateTimeFormatter.ofPattern("dd.MM.uuuu HH:mm"));
             case 4:
                 return task.getTaskAssignedEmployee();
+            case 5:
+                return task.getTaskDurationString();
         }
         return null;
     }
@@ -55,6 +56,8 @@ public class TasksTableModel extends AbstractTableModel {
             case 3:
                 return String.class;
             case 4:
+                return String.class;
+            case 5:
                 return String.class;
         }
         return null;

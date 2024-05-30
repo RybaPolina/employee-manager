@@ -1,3 +1,4 @@
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,6 @@ public class Task {
         this.taskStatus = taskStatus;
         this.creationDateTime = LocalDateTime.now();
         this.projectedFinishDateTime = LocalDateTime.now().plusDays(7);
-        //this.taskTimer = LocalDateTime.now();
         allTasks.add(this);
     }
 
@@ -74,6 +74,19 @@ public class Task {
 
     public LocalDateTime getTaskProjectedFinishDateTime() {
         return projectedFinishDateTime;
+    }
+
+    public Duration getTaskDuration () {
+        Duration taskDuration = Duration.between(this.getTaskCreationDateTime(), this.getTaskProjectedFinishDateTime());
+        return taskDuration;
+    }
+
+    public String getTaskDurationString() {
+        String hms = String.format("%d days, %02d hours, %02d minutes",
+                this.getTaskDuration().toDays(),
+                this.getTaskDuration().toHoursPart(),
+                this.getTaskDuration().toMinutesPart());
+        return hms;
     }
 
     public String getTaskAssignedEmployee() {
