@@ -8,6 +8,7 @@ public class Task {
     TaskStatus taskStatus;
     LocalDateTime creationDateTime;
     LocalDateTime projectedFinishDateTime;
+    //LocalDateTime taskTimer;
     Employee assignedEmployee;
 
     public Task(String name, TaskStatus taskStatus) {
@@ -15,6 +16,7 @@ public class Task {
         this.taskStatus = taskStatus;
         this.creationDateTime = LocalDateTime.now();
         this.projectedFinishDateTime = LocalDateTime.now().plusDays(7);
+        //this.taskTimer = LocalDateTime.now();
         allTasks.add(this);
     }
 
@@ -32,7 +34,10 @@ public class Task {
     }
 
     public void unassignEmployee(){
+        if (this.assignedEmployee != null){
+        this.assignedEmployee.unassignTask(this);
         this.assignedEmployee = null;
+        }
     }
 
     public static List<Task> getAllTasks(){

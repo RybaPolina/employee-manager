@@ -23,7 +23,6 @@ public class Employee {
     }
 
     public void unassignTask(Task t) {
-        t.unassignEmployee();
         assignedTasks.remove(t);
     }
 
